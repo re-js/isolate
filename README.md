@@ -2,27 +2,29 @@
 How to easy collect unsubscribe functions for several sources
 
 ```javascript
-import { isolate, un, scope } from "unsubscriber";
+import { collect, un, attach, run } from "unsubscriber";
 
-const unsubs = isolate();
+const unsubs = [];
 
 // Run code and collect "un" calls.
-const app = usubs.collect(() => {
-  un(() => {});
+const app = collect(usubs, () => {
+  attach(() => {});
   return new App();
 });
 
-const detach = usubs.attach(() => {});
+const detach = attach(usubs, () => {});
 
-usubs.run();
+run(usubs);
 ```
 
 Context dependent functions who available into the function body:
 
 ```javascript
-const app = usubs.collect(() => {
+const app = collect(usubs, () => {
 
-  const detach = scope().attach(unsubscriber);
+  const detach = attach(unsubscriber);
 
 });
 ```
+
+Enjoy your code!
