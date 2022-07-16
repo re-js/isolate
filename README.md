@@ -14,7 +14,7 @@ const unsubs = [];
 // Run code and collect unsubscribers
 const app = collect(usubs, () => {
   attach(() => {
-    console.log('unsubsribe');
+    console.log('unsubscribe');
   });
   return new App();
 });
