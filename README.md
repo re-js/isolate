@@ -4,12 +4,10 @@
 
 How to easy collect unsubscribe functions for several sources.
 
-Just three functions!
-
 ```javascript
-import { collect, attach, run } from "unsubscriber";
+import { unsubscriber, collect, attach, run } from "unsubscriber";
 
-const unsubs = [];
+const unsubs = unsubscriber();
 
 // Run code and collect unsubscribers
 const app = collect(usubs, () => {

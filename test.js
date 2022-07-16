@@ -1,10 +1,10 @@
-const { collect, attach, run } = require("./unsubscriber");
+const { unsubscriber, collect, attach, run } = require("./unsubscriber");
 
 let steps = '';
 
 (() => {
 
-  const unsubs = [];
+  const unsubs = unsubscriber();
 
   let b_detach;
 

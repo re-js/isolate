@@ -1,6 +1,8 @@
 
 let context_unsubs;
 
+const unsubscriber = () => [];
+
 const collect = (unsubs, fn) => {
   const stack = context_unsubs;
   context_unsubs = unsubs;
@@ -34,6 +36,7 @@ const attach = (a, b) => (
 const run = (unsubs) => (unsubs.forEach(fn => fn()), unsubs.length = 0);
 
 module.exports = {
+  unsubscriber,
   collect,
   attach,
   run
