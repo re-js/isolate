@@ -1,4 +1,4 @@
-# unsubs
+# isolate
 How to easy collect unsubscribe functions for several sources
 
 ```javascript
