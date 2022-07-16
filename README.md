@@ -1,8 +1,8 @@
-# isolate
+# unsubscriber
 How to easy collect unsubscribe functions for several sources
 
 ```javascript
-import { isolate, un, scope } from "isolate";
+import { isolate, un, scope } from "unsubscriber";
 
 const unsubs = isolate();
 
