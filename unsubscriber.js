@@ -1,11 +1,6 @@
 
 let context_unsubs;
 
-const un = (unsub) => (
-  context_unsubs && context_unsubs.push(unsub), 
-  unsub
-)
-
 const collect = (unsubs, fn) => {
   const stack = context_unsubs;
   context_unsubs = unsubs;
@@ -30,20 +25,15 @@ const attach_to = (unsubs, fn) => (
   }
 )
 
-const attach_to_scope = (fn) => (
-  context_unsubs && attach_to(context_unsubs, fn)
-)
-
 const attach = (a, b) => (
   typeof b === "undefined"
-    ? attach_to_scope(a)
+    ? (context_unsubs && attach_to(context_unsubs, a))
     : attach_to(a, b)
 )
 
 const run = (unsubs) => (unsubs.forEach(fn => fn()), unsubs.length = 0);
 
 module.exports = {
-  un,
   collect,
   attach,
   run

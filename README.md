@@ -1,14 +1,21 @@
 # unsubscriber
-How to easy collect unsubscribe functions for several sources
+
+[![npm version](https://img.shields.io/npm/v/unsubscriber?style=flat-square)](https://www.npmjs.com/package/unsubscriber) [![bundle size](https://img.shields.io/bundlephobia/minzip/unsubscriber?style=flat-square)](https://bundlephobia.com/result?p=unsubscriber)
+
+How to easy collect unsubscribe functions for several sources.
+
+Just three functions!
 
 ```javascript
-import { collect, un, attach, run } from "unsubscriber";
+import { collect, attach, run } from "unsubscriber";
 
 const unsubs = [];
 
-// Run code and collect "un" calls.
+// Run code and collect unsubscribers
 const app = collect(usubs, () => {
-  attach(() => {});
+  attach(() => {
+    console.log('unsubsribe');
+  });
   return new App();
 });
 
