@@ -26,6 +26,8 @@ const { unsubscriber, collect, attach, run, scope } = require("./unsubscriber");
   detach();
   b_detach();
 
+  attach(() => steps += 'H');
+
   console.assert(steps === '');
   run(unsubs);
   console.assert(steps === 'ACDFG');

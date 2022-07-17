@@ -17,7 +17,7 @@ const
 
   attach = (unsubs, fn) => (
     (fn || (fn = unsubs, unsubs = context_unsubs)),
-    unsubs.add(fn),
+    unsubs && unsubs.add(fn),
     () => unsubs.delete(fn)
   ),
 
