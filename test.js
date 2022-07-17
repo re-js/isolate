@@ -1,13 +1,11 @@
 const { unsubscriber, collect, attach, run, scope } = require("./unsubscriber");
 
-let steps = '';
-
 (() => {
-
-  const unsubs = unsubscriber();
-
+  let steps = '';
   let b_detach;
   let scope_handler;
+
+  const unsubs = unsubscriber();
 
   // Run code and collect "un" calls.
   const app = collect(unsubs, () => {
@@ -31,6 +29,6 @@ let steps = '';
   console.assert(steps === '');
   run(unsubs);
   console.assert(steps === 'ACDFG');
-  console.assert(unsubs.length === 0);
+  console.assert(unsubs.size === 0);
 
 })()

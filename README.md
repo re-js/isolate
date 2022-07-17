@@ -5,7 +5,7 @@
 How to easy collect unsubscribe functions for several sources.
 
 ```javascript
-import { unsubscriber, collect, attach, run } from "unsubscriber";
+import { unsubscriber, collect, attach, run, scope } from "unsubscriber";
 
 const unsubs = unsubscriber();
 
