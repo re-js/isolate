@@ -35,9 +35,12 @@ const attach = (a, b) => (
 
 const run = (unsubs) => (unsubs.forEach(fn => fn()), unsubs.length = 0);
 
+const scope = () => context_unsubs;
+
 module.exports = {
   unsubscriber,
   collect,
+  scope,
   attach,
   run
 }

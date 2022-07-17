@@ -14,6 +14,8 @@ const app = collect(usubs, () => {
   attach(() => {
     console.log('unsubscribe');
   });
+
+  attach(scope(), () => {});
   return new App();
 });
 
