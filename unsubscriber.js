@@ -1,35 +1,33 @@
 
 let context_unsubs
 
-const unsubscriber = () => new Set()
+const 
 
-const collect = (unsubs, fn) => {
-  const stack = context_unsubs
-  context_unsubs = unsubs
-  try {
-    return fn()
-  } finally {
-    context_unsubs = stack
-  }
-}
+  unsubscriber = () => new Set(),
 
-const attach_to = (unsubs, fn) => (
-  unsubs.add(fn),
-  () => unsubs.delete(fn)
-)
+  collect = (unsubs, fn) => {
+    const stack = context_unsubs
+    context_unsubs = unsubs
+    try {
+      return fn()
+    } finally {
+      context_unsubs = stack
+    }
+  },
 
-const attach = (a, b) => (
-  b
-    ? attach_to(a, b)
-    : context_unsubs && attach_to(context_unsubs, a)
-)
+  attach = (unsubs, fn) => (
+    (fn || (fn = unsubs, unsubs = context_unsubs)),
+    unsubs.add(fn),
+    () => unsubs.delete(fn)
+  ),
 
-const run = (unsubs) => (
-  unsubs.forEach(fn => fn()),
-  unsubs.clear()
-)
+  run = (unsubs) => (
+    unsubs.forEach(fn => fn()),
+    unsubs.clear()
+  ),
 
-const scope = () => context_unsubs
+  scope = () => context_unsubs
+
 
 module.exports = {
   unsubscriber,
