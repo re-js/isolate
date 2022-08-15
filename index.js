@@ -1,8 +1,7 @@
 
 let context_unsubs
 
-const 
-
+const
   unsubscriber = () => new Set(),
 
   collect = (unsubs, fn) => {
@@ -18,8 +17,10 @@ const
   attach = (unsubs, fn) => (
     (fn || (fn = unsubs, unsubs = context_unsubs)),
     unsubs && unsubs.add(fn),
-    () => unsubs.delete(fn)
+    () => unsubs && unsubs.delete(fn)
   ),
+
+  un = (fn) => attach(fn),
 
   run = (unsubs) => (
     unsubs.forEach(fn => fn()),
@@ -34,5 +35,6 @@ module.exports = {
   collect,
   scope,
   attach,
-  run
+  run,
+  un
 }

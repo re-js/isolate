@@ -1,13 +1,11 @@
 {
   "name": "unsubscriber",
-  "version": "0.9.5",
-  "description": "How to easy collect unsubscribe functions for several sources",
-  "main": "unsubscriber.js",
+  "version": "1.0.0",
+  "description": "How to easy collect unsubscribe functions from several sources",
+  "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
-    "test": "node test.js"
-  },
-  "engines": {
-    "node": ">=16"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -16,12 +14,19 @@
   "keywords": [
     "unsubscribe",
     "detach",
-    "unsubscriber"
+    "unsubscriber",
+    "un"
   ],
-  "author": "Slava Bereza",
+  "author": "Slava Bereza <mail@betula.co> (http://betula.co)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/re-js/unsubscriber/issues"
   },
-  "homepage": "https://github.com/re-js/unsubscriber#readme"
+  "homepage": "https://github.com/re-js/unsubscriber#readme",
+  "devDependencies": {
+    "@types/jest": "28.1.6",
+    "jest": "28.1.3",
+    "ts-jest": "28.0.7",
+    "typescript": "4.7.4"
+  }
 }
