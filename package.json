@@ -15,7 +15,7 @@
     "test": "jest",
     "clean": "rm -rf dist",
     "dev": "microbundle watch --raw --format cjs",
-    "build": "yarn clean && microbundle build --raw --target browser --generateTypes false"
+    "build": "yarn clean && microbundle build --raw --target web --generateTypes false"
   },
   "repository": {
     "type": "git",
