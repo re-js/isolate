@@ -28,9 +28,9 @@ const
   ),
 
   scope = () => context_unsubs
+;
 
-
-module.exports = {
+export {
   unsubscriber,
   collect,
   scope,
