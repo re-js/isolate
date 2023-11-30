@@ -1,6 +1,6 @@
 {
   "name": "unsubscriber",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "How to easy collect unsubscribe functions from several sources",
   "types": "src/index.d.ts",
   "main": "dist/unsubscriber.js",
