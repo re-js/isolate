@@ -2,11 +2,20 @@
   "name": "unsubscriber",
   "version": "2.1.0",
   "description": "How to easy collect unsubscribe functions from several sources",
-  "type": "module",
-  "main": "index.mjs",
-  "types": "index.d.ts",
+  "types": "src/index.d.ts",
+  "main": "dist/unsubscriber.js",
+  "module": "dist/unsubscriber.module.js",
+  "umd:main": "dist/unsubscriber.umd.js",
+  "source": "src/index.js",
+  "files": [
+    "src",
+    "dist"
+  ],
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "clean": "rm -rf dist",
+    "dev": "microbundle watch --raw --format cjs",
+    "build": "yarn clean && microbundle build --raw --target browser"
   },
   "repository": {
     "type": "git",
@@ -29,6 +38,16 @@
     "@babel/preset-typescript": "7.23.3",
     "@types/jest": "29.5.10",
     "jest": "29.7.0",
+    "microbundle": "0.15.1",
     "typescript": "5.3.2"
+  },
+  "exports": {
+    ".": {
+      "types": "./src/index.d.ts",
+      "browser": "./dist/unsubscriber.module.js",
+      "umd": "./dist/unsubscriber.umd.js",
+      "import": "./dist/unsubscriber.mjs",
+      "require": "./dist/unsubscriber.js"
+    }
   }
 }
