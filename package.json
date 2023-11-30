@@ -1,6 +1,6 @@
 {
   "name": "unsubscriber",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "How to easy collect unsubscribe functions from several sources",
   "type": "module",
   "main": "index.js",
